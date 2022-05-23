@@ -1,6 +1,6 @@
 // https://umijs.org/config/
-import { defineConfig } from 'umi';
 import { join } from 'path';
+import { defineConfig } from 'umi';
 import defaultSettings from './defaultSettings';
 import proxy from './proxy';
 
@@ -307,6 +307,12 @@ export default defineConfig({
           component: './editor/koni',
         },
       ],
+    },
+    {
+      name: 'game-list',
+      icon: 'smile',
+      path: '/game-list',
+      component: './game-list',
     },
     {
       path: '/',
