@@ -46,7 +46,7 @@ export const BasicList: FC = () => {
   const {
     data: listData,
     loading,
-    mutate,
+    run: getRun,
   } = useRequest(() => {
     return queryFakeList({
       count: 50,
@@ -65,7 +65,7 @@ export const BasicList: FC = () => {
     {
       manual: true,
       onSuccess: (result) => {
-        mutate(result);
+        getRun();
       },
     },
   );

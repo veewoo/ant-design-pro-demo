@@ -17,12 +17,8 @@ export async function queryFakeList(
 export async function removeFakeList(
   params: ParamsType,
 ): Promise<{ data: { list: GameListItemDataType[] } }> {
-  return request('/api/post_fake_list', {
-    method: 'POST',
-    data: {
-      ...params,
-      method: 'delete',
-    },
+  return request(`https://62846fb03060bbd34738c11d.mockapi.io/api/games/${params.id}`, {
+    method: 'DELETE',
   });
 }
 
@@ -41,11 +37,10 @@ export async function addFakeList(
 export async function updateFakeList(
   params: ParamsType,
 ): Promise<{ data: { list: GameListItemDataType[] } }> {
-  return request('/api/post_fake_list', {
-    method: 'POST',
+  return request(`https://62846fb03060bbd34738c11d.mockapi.io/api/games/${params.id}`, {
+    method: 'PUT',
     data: {
       ...params,
-      method: 'update',
     },
   });
 }

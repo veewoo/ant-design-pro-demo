@@ -1,10 +1,4 @@
-import {
-  ModalForm,
-  ProFormDateTimePicker,
-  ProFormSelect,
-  ProFormText,
-  ProFormTextArea,
-} from '@ant-design/pro-form';
+import { ModalForm, ProFormSelect, ProFormText, ProFormTextArea } from '@ant-design/pro-form';
 import { Button, Result } from 'antd';
 import type { FC } from 'react';
 import type { GameListItemDataType } from '../data.d';
@@ -45,6 +39,7 @@ const OperationModal: FC<OperationModalProps> = (props) => {
     >
       {!done ? (
         <>
+          <ProFormText name="id" hidden />
           <ProFormText
             name="name"
             label="Name"
@@ -57,7 +52,39 @@ const OperationModal: FC<OperationModalProps> = (props) => {
             rules={[{ required: true, message: 'This field is required' }]}
             placeholder="Game description"
           />
-          <ProFormDateTimePicker
+          <ProFormText
+            name="websiteurl"
+            label="Website URL"
+            rules={[{ required: true, message: 'This field is required' }]}
+            placeholder="Website URL"
+          />
+          <ProFormText
+            name="coverurl"
+            label="Cover URL"
+            rules={[{ required: true, message: 'This field is required' }]}
+            placeholder="Cover URL"
+          />
+          <ProFormText
+            name="covervideourl"
+            label="Cover video URL"
+            rules={[{ required: true, message: 'This field is required' }]}
+            placeholder="Cover video URL"
+          />
+          <ProFormText name="twitterurl" label="Twitter" placeholder="Twitter" />
+          <ProFormText name="discordurl" label="Discord" placeholder="Discord" />
+          <ProFormText name="facebookurl" label="Facebook" placeholder="Facebook" />
+          <ProFormSelect
+            name="tagsList"
+            label="Tags"
+            mode="tags"
+            style={{
+              width: '100%',
+            }}
+            placeholder="Tags"
+          >
+            {children}
+          </ProFormSelect>
+          {/* <ProFormDateTimePicker
             name="createdAt"
             label="开始时间"
             rules={[{ required: true, message: '请选择开始时间' }]}
@@ -89,7 +116,7 @@ const OperationModal: FC<OperationModalProps> = (props) => {
             label="产品描述"
             rules={[{ message: '请输入至少五个字符的产品描述！', min: 5 }]}
             placeholder="请输入至少五个字符"
-          />
+          /> */}
         </>
       ) : (
         <Result
